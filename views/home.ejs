@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <%= title%>
+    </head>
+    <body>
+       
+        <form action="/post_todo" method="post">
+            <h1>Description</h1>
+            <input type="text" placeholder="What do you need to do?" name="todo">
+            <h2>CATEGORY</h2>
+            <label for="tasks">Choose a category</label>
+            <select name="category" id="tasks">
+              <option value="Personal">Personal</option>
+              <option value="school">School</option>
+              <option value="work">Work</option>
+              <option value="Cleaning">Cleaning</option>
+              <option value="other">Other</option>
+            </select>
+            <br><br>
+            <label for="birthday">DUE DATE:</label>
+            <input type="date" id="birthday" name="duedate">
+            <button type="submit">ADD TASK</button>
+            <button>Delete TASKS</button>
+          </form>
+          <ul>
+            <% for(let i of todo_list){%>
+                <li><%=i.todo%></li>
+                <li><%=i.category%></li>
+                <li><%=i.duedate%></li>
+            <%}%>
+          </ul>
+    </body>
+</html>
